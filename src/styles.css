@@ -62,39 +62,44 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --radius: 0.4rem;
+  --background: oklch(0.985 0.008 103);
+  --foreground: oklch(0.205 0.028 158);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.205 0.028 158);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.205 0.028 158);
+  --primary: oklch(0.5 0.12 147);
+  --primary-foreground: oklch(0.99 0.004 102);
+  --secondary: oklch(0.93 0.07 83);
+  --secondary-foreground: oklch(0.24 0.042 51);
+  --muted: oklch(0.954 0.015 105);
+  --muted-foreground: oklch(0.49 0.025 154);
+  --accent: oklch(0.79 0.15 75);
+  --accent-foreground: oklch(0.24 0.042 51);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.89 0.025 115);
+  --input: oklch(0.89 0.025 115);
+  --ring: oklch(0.57 0.12 145);
+  --chart-1: oklch(0.5 0.12 147);
+  --chart-2: oklch(0.75 0.15 75);
+  --chart-3: oklch(0.59 0.13 209);
+  --chart-4: oklch(0.66 0.14 35);
+  --chart-5: oklch(0.65 0.11 275);
+  --sidebar: oklch(0.96 0.016 106);
+  --sidebar-foreground: oklch(0.205 0.028 158);
+  --sidebar-primary: oklch(0.5 0.12 147);
+  --sidebar-primary-foreground: oklch(0.99 0.004 102);
+  --sidebar-accent: oklch(0.94 0.04 92);
+  --sidebar-accent-foreground: oklch(0.24 0.042 51);
+  --sidebar-border: oklch(0.89 0.025 115);
+  --sidebar-ring: oklch(0.57 0.12 145);
+  --color-saffron: oklch(0.78 0.16 76);
+  --color-forest: oklch(0.36 0.09 148);
+  --color-sea: oklch(0.64 0.11 205);
+  --font-display: "Manrope", sans-serif;
+  --font-editorial: "DM Serif Display", Georgia, serif;
 }
 
 .dark {
@@ -140,5 +145,145 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
   }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@utility text-forest {
+  color: var(--color-forest);
+}
+
+@utility bg-forest {
+  background-color: var(--color-forest);
+}
+
+@utility text-saffron {
+  color: var(--color-saffron);
+}
+
+@utility bg-saffron {
+  background-color: var(--color-saffron);
+}
+
+@utility border-forest {
+  border-color: var(--color-forest);
+}
+
+@utility font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.page-wrap {
+  width: min(100% - 2.5rem, 78rem);
+  margin-inline: auto;
+}
+
+.hero-image {
+  background-image: linear-gradient(90deg, color-mix(in oklab, var(--color-background) 97%, transparent) 0%, color-mix(in oklab, var(--color-background) 70%, transparent) 39%, transparent 71%), url("./assets/drumil-editorial-hero.jpg");
+  background-size: cover;
+  background-position: center 53%;
+}
+
+.cover-art {
+  position: relative;
+  display: grid;
+  aspect-ratio: 0.83;
+  overflow: hidden;
+  place-content: center;
+  padding: 1.25rem;
+  color: var(--cover-ink, var(--color-foreground));
+  background: var(--cover-bg, var(--color-secondary));
+}
+
+.cover-art::after {
+  position: absolute;
+  right: -12%;
+  bottom: -12%;
+  width: 62%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--cover-mark, var(--color-saffron));
+  content: "";
+  opacity: 0.54;
+}
+
+.cover-game { --cover-bg: oklch(0.38 0.105 148); --cover-ink: oklch(0.99 0.004 102); --cover-mark: oklch(0.79 0.16 76); }
+.cover-hindi { --cover-bg: oklch(0.73 0.14 195); --cover-ink: oklch(0.19 0.055 205); --cover-mark: oklch(0.91 0.11 90); }
+.cover-celebrity { --cover-bg: oklch(0.46 0.105 25); --cover-ink: oklch(0.98 0.01 86); --cover-mark: oklch(0.79 0.16 76); }
+.cover-elements { --cover-bg: oklch(0.82 0.105 83); --cover-ink: oklch(0.28 0.06 51); --cover-mark: oklch(0.62 0.12 204); }
+.cover-nature { --cover-bg: oklch(0.74 0.095 147); --cover-ink: oklch(0.2 0.07 153); --cover-mark: oklch(0.92 0.12 91); }
+.cover-consciousness { --cover-bg: oklch(0.31 0.07 222); --cover-ink: oklch(0.98 0.01 94); --cover-mark: oklch(0.76 0.13 77); }
+.cover-logic { --cover-bg: oklch(0.81 0.08 198); --cover-ink: oklch(0.2 0.06 188); --cover-mark: oklch(0.44 0.1 147); }
+.cover-essay { --cover-bg: oklch(0.86 0.07 40); --cover-ink: oklch(0.29 0.05 30); --cover-mark: oklch(0.69 0.12 145); }
+.cover-stories { --cover-bg: oklch(0.83 0.12 78); --cover-ink: oklch(0.28 0.06 49); --cover-mark: oklch(0.51 0.12 147); }
+.cover-ahalya { --cover-bg: oklch(0.72 0.105 18); --cover-ink: oklch(0.99 0.006 91); --cover-mark: oklch(0.87 0.12 81); }
+.cover-epic { --cover-bg: oklch(0.38 0.07 220); --cover-ink: oklch(0.97 0.01 94); --cover-mark: oklch(0.73 0.15 72); }
+.cover-sound { --cover-bg: oklch(0.87 0.065 136); --cover-ink: oklch(0.22 0.065 153); --cover-mark: oklch(0.64 0.12 82); }
+
+.cover-art__title,
+.cover-art__subtitle,
+.cover-art__mark {
+  position: relative;
+  z-index: 1;
+}
+
+.cover-art__title {
+  max-width: 12ch;
+  font-family: var(--font-editorial);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  line-height: 1.12;
+}
+
+.cover-art__subtitle {
+  margin-top: 0.55rem;
+  font-size: 0.58rem;
+  font-weight: 650;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.cover-art__mark {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.75rem;
+  font-size: 0.48rem;
+  font-weight: 750;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.quiet-grid {
+  background-image: radial-gradient(color-mix(in oklab, var(--color-forest) 15%, transparent) 0.6px, transparent 0.6px);
+  background-size: 15px 15px;
+}
+
+.focus-ring {
+  outline: 3px solid color-mix(in oklab, var(--color-saffron) 63%, transparent);
+  outline-offset: 5px;
+}
+
+.nav-link[data-status="active"] {
+  color: var(--color-forest);
+  text-decoration: underline;
+  text-decoration-color: var(--color-saffron);
+  text-underline-offset: 0.45rem;
+}
+
+@media (max-width: 640px) {
+  .page-wrap { width: min(100% - 1.5rem, 78rem); }
+  .hero-image { background-position: 64% center; }
 }
