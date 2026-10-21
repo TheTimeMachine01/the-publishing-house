@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep publication records and pure INR cart-pricing rules in browser-safe shared modules; use a root-level provider for cart state so navigation preserves a single live cart.
